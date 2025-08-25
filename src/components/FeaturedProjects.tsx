@@ -1,33 +1,39 @@
 const projects = [
   {
-    name: "Cashmere",
+    name: "Karishma",
     year: "2024",
-    category: "Retail Innovation",
-    description: "Revolutionary point-of-sale system that transforms every transaction into a *seamless digital experience*. Features real-time inventory synchronization, intelligent customer insights, and frictionless payment processing.",
-    highlight: "Processing 10K+ transactions daily",
-    icon: "⚡",
+    category: "Fintech UX",
+    description: "Gen Z-focused budgeting app with Pinterest-style mood boards for financial goals. Combines emotional design with practical money management.",
+    highlights: ["£2.3M pre-seed funding", "12K+ beta users", "Featured in TechCrunch"],
+    technologies: ["React", "Emotional Design", "UX Research"],
+    status: "Live",
     demoUrl: "#",
-    accent: "156 35% 45%"
+    deckUrl: "#",
+    accent: "326 78% 66%" // Pink
   },
   {
     name: "VibeVault",
     year: "2024", 
-    category: "AI Music Platform",
-    description: "Next-generation music discovery engine that creates *personalized sonic landscapes* through advanced machine learning. Connects listeners with emerging artists through intelligent taste-matching algorithms.",
-    highlight: "50M+ songs analyzed",
-    icon: "🎵",
+    category: "Music Discovery",
+    description: "Emotional music discovery platform that analyses your mood through facial recognition and curates personalised playlists.",
+    highlights: ["50M+ songs analysed", "99.2% mood accuracy", "Spotify integration"],
+    technologies: ["Spotify API", "Machine Learning", "Audio Processing"],
+    status: "Prototype",
     demoUrl: "#",
-    accent: "205 40% 50%"
+    deckUrl: "#",
+    accent: "186 83% 60%" // Teal
   },
   {
     name: "HRMNY",
     year: "2023",
-    category: "Workforce Intelligence",
-    description: "Human-centered HR platform that revolutionizes *people operations* through empathetic design and predictive analytics. Reduces employee turnover by 40% through intelligent engagement insights.",
-    highlight: "40% turnover reduction",
-    icon: "👥",
+    category: "Social Care AI",
+    description: "AI-powered workforce management for social care teams. Reduces administrative burden whilst improving client outcomes.",
+    highlights: ["£583M potential NHS savings", "40% admin reduction", "GDPR compliant"],
+    technologies: ["AI/ML", "NHS Systems", "Compliance Design"],
+    status: "Business Case",
     demoUrl: "#",
-    accent: "25 45% 55%"
+    deckUrl: "#",
+    accent: "267 84% 73%" // Purple
   }
 ];
 
@@ -45,77 +51,86 @@ const FeaturedProjects = () => {
           </p>
         </div>
         
-        {/* Streamlined Vertical Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
+        {/* Clean Card Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
             <div 
               key={project.name}
               className="group relative"
             >
-              {/* Project Number */}
-              <div className="absolute -top-4 -left-4 w-12 h-12 rounded-full flex items-center justify-center text-sm font-medium bg-card shadow-soft z-10" 
-                   style={{ color: `hsl(${project.accent})` }}>
-                {String(index + 1).padStart(2, '0')}
-              </div>
-              
               {/* Main Card */}
-              <div className="bg-card rounded-2xl p-8 shadow-soft hover-lift transition-smooth border border-border/50 h-full">
-                {/* Header */}
-                <div className="mb-6">
-                  <div className="flex items-center justify-between mb-3">
-                    <span className="text-xs font-medium tracking-wider uppercase text-muted-foreground">
-                      {project.category}
+              <div className="bg-card rounded-lg border border-border shadow-soft h-full overflow-hidden">
+                {/* Coloured Top Border */}
+                <div className="h-1 w-full" style={{ backgroundColor: `hsl(${project.accent})` }}></div>
+                
+                <div className="p-6">
+                  {/* Status Badge */}
+                  <div className="flex justify-between items-start mb-4">
+                    <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary/10 text-primary">
+                      {project.status}
                     </span>
                     <span className="text-xs text-muted-foreground">
                       {project.year}
                     </span>
                   </div>
                   
-                  <h3 className="text-heading text-2xl lg:text-3xl mb-2 text-foreground">
+                  {/* Project Title */}
+                  <h3 className="text-heading text-xl font-semibold mb-2 text-foreground">
                     {project.name}
                   </h3>
                   
-                  <div className="w-12 h-0.5 mb-4" 
-                       style={{ backgroundColor: `hsl(${project.accent})` }}>
-                  </div>
-                </div>
-                
-                {/* Icon & Highlight */}
-                <div className="mb-6 flex items-center justify-between">
-                  <span className="text-2xl animate-pulse">
-                    {project.icon}
-                  </span>
-                  <div className="text-right">
-                    <div className="text-xs font-medium text-primary animate-fade-in">
-                      LIVE PROTOTYPE
-                    </div>
-                    <div className="text-xs text-muted-foreground mt-1">
-                      {project.highlight}
-                    </div>
-                  </div>
-                </div>
-                
-                {/* Description with italic emphasis */}
-                <div className="mb-8">
-                  <p className="text-body text-muted-foreground leading-relaxed">
-                    {project.description.split('*').map((part, i) => 
-                      i % 2 === 1 ? <em key={i} className="text-foreground font-medium">{part}</em> : part
-                    )}
+                  <p className="text-xs font-medium tracking-wider uppercase text-muted-foreground mb-4">
+                    {project.category}
                   </p>
+                  
+                  {/* Description */}
+                  <p className="text-body text-muted-foreground mb-6 leading-relaxed">
+                    {project.description}
+                  </p>
+                  
+                  {/* Highlights Section */}
+                  <div className="mb-6">
+                    <h4 className="text-xs font-semibold tracking-wider uppercase text-foreground mb-3">
+                      HIGHLIGHTS
+                    </h4>
+                    <ul className="space-y-2">
+                      {project.highlights.map((highlight, i) => (
+                        <li key={i} className="text-sm text-muted-foreground flex items-start">
+                          <span className="w-1.5 h-1.5 rounded-full mt-2 mr-3 flex-shrink-0" 
+                                style={{ backgroundColor: `hsl(${project.accent})` }}></span>
+                          {highlight}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  
+                  {/* Technologies Section */}
+                  <div className="mb-8">
+                    <h4 className="text-xs font-semibold tracking-wider uppercase text-foreground mb-3">
+                      TECHNOLOGIES
+                    </h4>
+                    <div className="flex flex-wrap gap-2">
+                      {project.technologies.map((tech, i) => (
+                        <span key={i} className="px-2 py-1 text-xs rounded-md bg-muted text-muted-foreground">
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                  
+                  {/* Buttons */}
+                  <div className="space-y-3">
+                    <button 
+                      className="w-full px-4 py-3 text-sm font-medium text-white rounded-lg transition-all duration-200 hover:opacity-90"
+                      style={{ backgroundColor: `hsl(${project.accent})` }}
+                    >
+                      Launch App
+                    </button>
+                    <button className="w-full px-4 py-2 text-sm font-medium text-muted-foreground border border-border rounded-lg hover:bg-muted transition-all duration-200">
+                      View {project.status === 'Business Case' ? 'Business Case' : 'Pitch Deck'}
+                    </button>
+                  </div>
                 </div>
-                
-                {/* Enhanced CTA */}
-                <button className="group/btn w-full bg-gradient-to-r from-primary/10 to-transparent border border-primary/20 rounded-xl px-6 py-4 text-primary font-medium hover:from-primary/20 hover:border-primary/40 transition-all duration-300 flex items-center justify-center">
-                  <span>Launch Prototype</span>
-                  <svg 
-                    className="w-4 h-4 ml-2 group-hover/btn:translate-x-1 transition-smooth" 
-                    fill="none" 
-                    stroke="currentColor" 
-                    viewBox="0 0 24 24"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                  </svg>
-                </button>
               </div>
             </div>
           ))}
