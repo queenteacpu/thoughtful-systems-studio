@@ -198,7 +198,7 @@
   }
   
   .hover-lift:hover {
-    transform: translateY(-2px);
+    transform: translateY(-4px);
     box-shadow: var(--shadow-medium);
   }
   
@@ -208,6 +208,33 @@
   
   .hover-scale:hover {
     transform: scale(1.02);
+  }
+
+  /* Editorial Enhancements */
+  .editorial-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, hsl(var(--border)) 50%, transparent 100%);
+    margin: 4rem 0;
+  }
+
+  .pull-quote {
+    position: relative;
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    line-height: 1.4;
+    font-style: italic;
+    color: hsl(var(--primary));
+    padding: 2rem 0;
+  }
+
+  .pull-quote::before {
+    content: '"';
+    position: absolute;
+    left: -1rem;
+    top: 1rem;
+    font-size: 3rem;
+    color: hsl(var(--accent));
+    font-family: var(--font-display);
   }
   
   /* Content Sections */
