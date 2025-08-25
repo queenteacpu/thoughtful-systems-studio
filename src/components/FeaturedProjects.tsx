@@ -2,30 +2,30 @@ const projects = [
   {
     name: "Cashmere",
     year: "2024",
-    category: "Retail Technology",
-    description: "Elegant point-of-sale system that transforms retail transactions into seamless experiences. Built with modern UX principles and real-time processing capabilities.",
-    focus: "Real-time Architecture",
-    tags: ["React", "Real-time", "UX Design", "Systems"],
+    category: "Retail Innovation",
+    description: "Revolutionary point-of-sale system that transforms every transaction into a *seamless digital experience*. Features real-time inventory synchronization, intelligent customer insights, and frictionless payment processing.",
+    highlight: "Processing 10K+ transactions daily",
+    icon: "⚡",
     demoUrl: "#",
     accent: "156 35% 45%"
   },
   {
     name: "VibeVault",
     year: "2024", 
-    category: "Music Technology",
-    description: "Music discovery platform that creates personal soundscapes through AI-driven recommendations and social listening experiences.",
-    focus: "AI-Driven Discovery",
-    tags: ["AI/ML", "Social", "Music Tech", "Algorithms"],
+    category: "AI Music Platform",
+    description: "Next-generation music discovery engine that creates *personalized sonic landscapes* through advanced machine learning. Connects listeners with emerging artists through intelligent taste-matching algorithms.",
+    highlight: "50M+ songs analyzed",
+    icon: "🎵",
     demoUrl: "#",
     accent: "205 40% 50%"
   },
   {
     name: "HRMNY",
     year: "2023",
-    category: "Enterprise Solutions",
-    description: "Human resources management platform that puts people first, featuring intelligent analytics and empathetic workforce solutions.",
-    focus: "People-Centric Design",
-    tags: ["Analytics", "People Ops", "Enterprise", "Ethics"],
+    category: "Workforce Intelligence",
+    description: "Human-centered HR platform that revolutionizes *people operations* through empathetic design and predictive analytics. Reduces employee turnover by 40% through intelligent engagement insights.",
+    highlight: "40% turnover reduction",
+    icon: "👥",
     demoUrl: "#",
     accent: "25 45% 55%"
   }
@@ -80,40 +80,40 @@ const FeaturedProjects = () => {
                   </div>
                 </div>
                 
-                {/* Focus Area */}
-                <div className="mb-6">
-                  <span className="text-sm font-medium text-foreground">
-                    {project.focus}
+                {/* Icon & Highlight */}
+                <div className="mb-6 flex items-center justify-between">
+                  <span className="text-2xl animate-pulse">
+                    {project.icon}
                   </span>
+                  <div className="text-right">
+                    <div className="text-xs font-medium text-primary animate-fade-in">
+                      LIVE PROTOTYPE
+                    </div>
+                    <div className="text-xs text-muted-foreground mt-1">
+                      {project.highlight}
+                    </div>
+                  </div>
                 </div>
                 
-                {/* Description */}
-                <p className="text-body text-muted-foreground mb-8 leading-relaxed">
-                  {project.description}
-                </p>
-                
-                {/* Tags */}
-                <div className="flex flex-wrap gap-2 mb-8">
-                  {project.tags.map((tag) => (
-                    <span 
-                      key={tag}
-                      className="px-3 py-1.5 bg-muted text-muted-foreground rounded-full text-xs font-medium hover:bg-accent/30 hover:text-accent-foreground transition-gentle"
-                    >
-                      {tag}
-                    </span>
-                  ))}
+                {/* Description with italic emphasis */}
+                <div className="mb-8">
+                  <p className="text-body text-muted-foreground leading-relaxed">
+                    {project.description.split('*').map((part, i) => 
+                      i % 2 === 1 ? <em key={i} className="text-foreground font-medium">{part}</em> : part
+                    )}
+                  </p>
                 </div>
                 
-                {/* CTA */}
-                <button className="group/btn text-primary font-medium hover:text-primary/80 transition-gentle flex items-center">
-                  <span>Explore Project</span>
+                {/* Enhanced CTA */}
+                <button className="group/btn w-full bg-gradient-to-r from-primary/10 to-transparent border border-primary/20 rounded-xl px-6 py-4 text-primary font-medium hover:from-primary/20 hover:border-primary/40 transition-all duration-300 flex items-center justify-center">
+                  <span>Launch Prototype</span>
                   <svg 
                     className="w-4 h-4 ml-2 group-hover/btn:translate-x-1 transition-smooth" 
                     fill="none" 
                     stroke="currentColor" 
                     viewBox="0 0 24 24"
                   >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                   </svg>
                 </button>
               </div>
