@@ -6,7 +6,7 @@ const projects = [
     description: "Gen Z-focused budgeting concept exploring Pinterest-style mood boards for financial goals. A design exploration combining emotional wellness with practical money management.",
     highlights: ["Conceptual design system", "User journey mapping", "Emotional design framework", "Interactive prototype"],
     technologies: ["Figma", "Design Systems", "UX Research", "Prototyping"],
-    status: "Concept",
+    status: "Prototype",
     demoUrl: "#",
     deckUrl: "#",
     useDesignSystem: true
@@ -120,10 +120,10 @@ const FeaturedProjects = () => {
                   {/* Buttons */}
                   <div className="space-y-3">
                     <button className="w-full px-4 py-3 text-sm font-medium bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-smooth">
-                      {project.status === 'Concept' ? 'View Prototype' : project.status === 'Business Case' ? 'View Case Study' : 'Launch App'}
+                      {project.status === 'Business Case' ? 'View Business Case' : 'View Prototype'}
                     </button>
                     <button className="w-full px-4 py-2 text-sm font-medium text-muted-foreground border border-border rounded-lg hover:bg-muted transition-smooth">
-                      {project.status === 'Business Case' ? 'View Business Case' : 'View Design Process'}
+                      {project.status === 'Business Case' ? 'View Prototype' : 'View Design Process'}
                     </button>
                   </div>
                 </div>
