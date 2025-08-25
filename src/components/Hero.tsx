@@ -27,10 +27,10 @@ const Hero = () => {
         </p>
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <button className="bg-primary text-primary-foreground px-8 py-4 rounded-full text-body font-medium hover-lift shadow-soft">
+          <button className="bg-primary text-primary-foreground px-8 py-4 rounded-full text-body font-medium btn-glow shadow-soft">
             Explore My Work
           </button>
-          <button className="border border-primary text-primary px-8 py-4 rounded-full text-body font-medium hover-lift bg-white/50 backdrop-blur-sm">
+          <button className="border border-primary text-primary px-8 py-4 rounded-full text-body font-medium hover-lift bg-white/50 backdrop-blur-sm subtle-border">
             Connect With Me
           </button>
         </div>

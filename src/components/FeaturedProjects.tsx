@@ -41,6 +41,7 @@ const FeaturedProjects = () => {
   return (
     <section className="py-24 section-padding bg-gradient-subtle">
       <div className="container-wide">
+        <div className="section-divider"></div>
         <div className="text-center mb-20">
           <h2 className="text-display text-4xl lg:text-5xl mb-6 text-foreground">
             Featured Projects
@@ -59,7 +60,7 @@ const FeaturedProjects = () => {
                 className="group relative"
               >
                 {/* Main Card */}
-                <div className="bg-card rounded-lg border border-border shadow-soft h-full overflow-hidden hover-lift">
+                <div className="bg-card rounded-lg border border-border shadow-soft h-full overflow-hidden card-elevate subtle-border">
                   {/* Sophisticated Top Border - Using Design System */}
                   <div className="h-1 w-full bg-gradient-to-r from-primary via-accent to-primary"></div>
                 
@@ -119,10 +120,10 @@ const FeaturedProjects = () => {
                   
                   {/* Buttons */}
                   <div className="space-y-3">
-                    <button className="w-full px-4 py-3 text-sm font-medium bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-smooth">
+                    <button className="w-full px-4 py-3 text-sm font-medium bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 btn-glow">
                       {project.status === 'Business Case' ? 'View Business Case' : 'View Prototype'}
                     </button>
-                    <button className="w-full px-4 py-2 text-sm font-medium text-muted-foreground border border-border rounded-lg hover:bg-muted transition-smooth">
+                    <button className="w-full px-4 py-2 text-sm font-medium text-muted-foreground border border-border rounded-lg hover:bg-muted subtle-border transition-smooth">
                       {project.status === 'Business Case' ? 'View Prototype' : 'View Design Process'}
                     </button>
                   </div>
