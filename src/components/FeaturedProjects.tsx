@@ -2,38 +2,38 @@ const projects = [
   {
     name: "Karishma",
     year: "2024",
-    category: "Fintech UX",
-    description: "Gen Z-focused budgeting app with Pinterest-style mood boards for financial goals. Combines emotional design with practical money management.",
-    highlights: ["£2.3M pre-seed funding", "12K+ beta users", "Featured in TechCrunch"],
-    technologies: ["React", "Emotional Design", "UX Research"],
-    status: "Live",
+    category: "Fintech UX Design",
+    description: "Gen Z-focused budgeting concept exploring Pinterest-style mood boards for financial goals. A design exploration combining emotional wellness with practical money management.",
+    highlights: ["Conceptual design system", "User journey mapping", "Emotional design framework", "Interactive prototype"],
+    technologies: ["Figma", "Design Systems", "UX Research", "Prototyping"],
+    status: "Concept",
     demoUrl: "#",
     deckUrl: "#",
-    accent: "326 78% 66%" // Pink
+    useDesignSystem: true
   },
   {
     name: "VibeVault",
     year: "2024", 
     category: "Music Discovery",
-    description: "Emotional music discovery platform that analyses your mood through facial recognition and curates personalised playlists.",
-    highlights: ["50M+ songs analysed", "99.2% mood accuracy", "Spotify integration"],
-    technologies: ["Spotify API", "Machine Learning", "Audio Processing"],
+    description: "Emotional music discovery platform concept that analyses mood and curates personalised playlists. Exploring the intersection of emotion and music technology.",
+    highlights: ["Spotify API integration", "Mood detection research", "Playlist curation algorithm", "Interactive prototype"],
+    technologies: ["Spotify API", "Machine Learning", "Audio Processing", "React"],
     status: "Prototype",
     demoUrl: "#",
     deckUrl: "#",
-    accent: "186 83% 60%" // Teal
+    useDesignSystem: true
   },
   {
     name: "HRMNY",
     year: "2023",
     category: "Social Care AI",
-    description: "AI-powered workforce management for social care teams. Reduces administrative burden whilst improving client outcomes.",
-    highlights: ["£583M potential NHS savings", "40% admin reduction", "GDPR compliant"],
-    technologies: ["AI/ML", "NHS Systems", "Compliance Design"],
+    description: "AI-powered workforce management concept for social care teams. Business case exploring how technology can reduce administrative burden whilst improving client outcomes.",
+    highlights: ["£583M potential NHS savings", "40% admin reduction research", "GDPR compliance framework", "Stakeholder engagement"],
+    technologies: ["AI/ML Research", "NHS Systems", "Compliance Design", "Service Design"],
     status: "Business Case",
     demoUrl: "#",
     deckUrl: "#",
-    accent: "267 84% 73%" // Purple
+    useDesignSystem: true
   }
 ];
 
@@ -54,14 +54,14 @@ const FeaturedProjects = () => {
         {/* Clean Card Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
-            <div 
-              key={project.name}
-              className="group relative"
-            >
-              {/* Main Card */}
-              <div className="bg-card rounded-lg border border-border shadow-soft h-full overflow-hidden">
-                {/* Coloured Top Border */}
-                <div className="h-1 w-full" style={{ backgroundColor: `hsl(${project.accent})` }}></div>
+              <div 
+                key={project.name}
+                className="group relative"
+              >
+                {/* Main Card */}
+                <div className="bg-card rounded-lg border border-border shadow-soft h-full overflow-hidden hover-lift">
+                  {/* Sophisticated Top Border - Using Design System */}
+                  <div className="h-1 w-full bg-gradient-to-r from-primary via-accent to-primary"></div>
                 
                 <div className="p-6">
                   {/* Status Badge */}
@@ -96,8 +96,7 @@ const FeaturedProjects = () => {
                     <ul className="space-y-2">
                       {project.highlights.map((highlight, i) => (
                         <li key={i} className="text-sm text-muted-foreground flex items-start">
-                          <span className="w-1.5 h-1.5 rounded-full mt-2 mr-3 flex-shrink-0" 
-                                style={{ backgroundColor: `hsl(${project.accent})` }}></span>
+                          <span className="w-1.5 h-1.5 rounded-full mt-2 mr-3 flex-shrink-0 bg-primary"></span>
                           {highlight}
                         </li>
                       ))}
@@ -120,14 +119,11 @@ const FeaturedProjects = () => {
                   
                   {/* Buttons */}
                   <div className="space-y-3">
-                    <button 
-                      className="w-full px-4 py-3 text-sm font-medium text-white rounded-lg transition-all duration-200 hover:opacity-90"
-                      style={{ backgroundColor: `hsl(${project.accent})` }}
-                    >
-                      Launch App
+                    <button className="w-full px-4 py-3 text-sm font-medium bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-smooth">
+                      {project.status === 'Concept' ? 'View Prototype' : project.status === 'Business Case' ? 'View Case Study' : 'Launch App'}
                     </button>
-                    <button className="w-full px-4 py-2 text-sm font-medium text-muted-foreground border border-border rounded-lg hover:bg-muted transition-all duration-200">
-                      View {project.status === 'Business Case' ? 'Business Case' : 'Pitch Deck'}
+                    <button className="w-full px-4 py-2 text-sm font-medium text-muted-foreground border border-border rounded-lg hover:bg-muted transition-smooth">
+                      {project.status === 'Business Case' ? 'View Business Case' : 'View Design Process'}
                     </button>
                   </div>
                 </div>
