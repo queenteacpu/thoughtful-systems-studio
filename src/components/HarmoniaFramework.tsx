@@ -94,20 +94,22 @@ const HarmoniaFramework = () => {
         {/* Methodology Process */}
         <div className="mb-16">
           <h3 className="text-heading text-2xl mb-8 text-center text-foreground">Design Process</h3>
-          <div className="grid md:grid-cols-4 gap-6">
-            {methodology.map((phase, index) => (
-              <div key={phase.phase} className="text-center">
-                <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center text-primary font-semibold text-lg mx-auto mb-4">
-                  {index + 1}
+          <div className="relative">
+            {/* Connecting line */}
+            <div className="hidden md:block absolute top-8 left-0 right-0 h-px bg-border z-0"></div>
+            
+            <div className="grid md:grid-cols-4 gap-6 relative z-10">
+              {methodology.map((phase, index) => (
+                <div key={phase.phase} className="text-center">
+                  <div className="w-16 h-16 rounded-full bg-primary/10 border-4 border-background flex items-center justify-center text-primary font-semibold text-lg mx-auto mb-4 relative z-10">
+                    {index + 1}
+                  </div>
+                  <h4 className="text-heading text-lg mb-2 text-foreground">{phase.phase}</h4>
+                  <p className="text-sm text-muted-foreground mb-3">{phase.focus}</p>
+                  <p className="text-xs text-muted-foreground">{phase.tools}</p>
                 </div>
-                <h4 className="text-heading text-lg mb-2 text-foreground">{phase.phase}</h4>
-                <p className="text-sm text-muted-foreground mb-3">{phase.focus}</p>
-                <p className="text-xs text-muted-foreground">{phase.tools}</p>
-                {index < methodology.length - 1 && (
-                  <div className="hidden md:block absolute top-8 left-full w-full h-px bg-border transform translate-x-3"></div>
-                )}
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
         
