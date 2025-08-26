@@ -1,4 +1,14 @@
+import React, { useState } from "react";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+
 const ResearchShowcase = () => {
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
   const research = [
     {
       title: "Emotional Intelligence in System Design",
@@ -54,6 +64,11 @@ const ResearchShowcase = () => {
                     <span className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium">
                       {item.status}
                     </span>
+                    {index === 0 && (
+                      <span className="px-3 py-1 bg-primary/20 text-primary rounded-full text-sm font-medium flex items-center gap-1">
+                        📄 Full Article
+                      </span>
+                    )}
                   </div>
                   
                   <h3 className="text-heading text-2xl mb-4 text-foreground">
@@ -66,9 +81,46 @@ const ResearchShowcase = () => {
                 </div>
                 
                 <div className="lg:w-32 flex lg:flex-col gap-3">
-                  <button className="flex-1 lg:flex-none text-primary font-medium hover:text-primary/80 transition-gentle text-sm">
-                    Read More →
-                  </button>
+                  {index === 0 ? (
+                    <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+                      <DialogTrigger asChild>
+                        <button className="flex-1 lg:flex-none text-primary font-medium hover:text-primary/80 transition-gentle text-sm">
+                          Read More →
+                        </button>
+                      </DialogTrigger>
+                      <DialogContent className="max-w-5xl w-[95vw] max-h-[90vh] overflow-y-auto">
+                        <DialogHeader>
+                          <DialogTitle className="text-2xl font-semibold mb-4">
+                            {item.title}
+                          </DialogTitle>
+                        </DialogHeader>
+                        <div className="space-y-4">
+                          <div className="relative w-full" style={{ paddingTop: "141.42%", boxShadow: "0 2px 8px rgba(63,69,81,0.16)", borderRadius: "8px", overflow: "hidden" }}>
+                            <iframe 
+                              loading="lazy" 
+                              style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", border: "none" }}
+                              src="https://www.canva.com/design/DAGxK7xh828/5KXX7crbMku0c8CLxyJdnA/view?embed" 
+                              allowFullScreen
+                            />
+                          </div>
+                          <p className="text-center text-sm text-muted-foreground">
+                            <a 
+                              href="https://www.canva.com/design/DAGxK7xh828/5KXX7crbMku0c8CLxyJdnA/view" 
+                              target="_blank" 
+                              rel="noopener"
+                              className="text-primary hover:text-primary/80 transition-gentle"
+                            >
+                              View full article on Canva
+                            </a>
+                          </p>
+                        </div>
+                      </DialogContent>
+                    </Dialog>
+                  ) : (
+                    <button className="flex-1 lg:flex-none text-primary font-medium hover:text-primary/80 transition-gentle text-sm">
+                      Read More →
+                    </button>
+                  )}
                   <button className="flex-1 lg:flex-none text-muted-foreground hover:text-foreground transition-gentle text-sm">
                     Download PDF
                   </button>
