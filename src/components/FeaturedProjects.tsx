@@ -39,11 +39,11 @@ const projects = [
 
 const FeaturedProjects = () => {
   return (
-    <section className="py-24 section-padding bg-gradient-subtle">
+    <section className="py-24 section-padding bg-gradient-subtle texture-overlay section-connector">
       <div className="container-wide">
         <div className="section-divider"></div>
         <div className="text-center mb-20">
-          <h2 className="text-display text-4xl lg:text-5xl mb-6 text-foreground">
+          <h2 className="text-display text-4xl lg:text-5xl mb-6 gradient-text">
             Featured Projects
           </h2>
           <p className="text-body-large text-muted-foreground max-w-2xl mx-auto">
@@ -52,17 +52,17 @@ const FeaturedProjects = () => {
           </p>
         </div>
         
-        {/* Clean Card Layout */}
+        {/* Enhanced 3D Card Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
               <div 
                 key={project.name}
-                className="group relative"
+                className="group relative stagger-animation"
               >
-                {/* Main Card */}
-                <div className="bg-card rounded-lg border border-border shadow-soft h-full overflow-hidden card-elevate subtle-border">
-                  {/* Sophisticated Top Border - Using Design System */}
-                  <div className="h-1 w-full bg-gradient-to-r from-primary via-accent to-primary"></div>
+                {/* Advanced 3D Card with Ambient Effects */}
+                <div className="bg-card rounded-lg border border-border shadow-soft h-full overflow-hidden card-3d gradient-border-animated ambient-glow texture-overlay">
+                  {/* Animated Gradient Top Border */}
+                  <div className="h-1 w-full bg-gradient-to-r from-primary via-accent to-primary animate-pulse"></div>
                 
                 <div className="p-6">
                   {/* Status Badge */}

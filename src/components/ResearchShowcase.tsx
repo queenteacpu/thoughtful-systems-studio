@@ -24,10 +24,10 @@ const ResearchShowcase = () => {
   ];
 
   return (
-    <section className="py-20 section-padding bg-gradient-subtle">
+    <section className="py-20 section-padding bg-gradient-subtle texture-overlay">
       <div className="container-narrow">
         <div className="text-center mb-16">
-          <h2 className="text-display text-4xl lg:text-5xl mb-6 text-foreground">
+          <h2 className="text-display text-4xl lg:text-5xl mb-6 gradient-text">
             Research & Emotional Intelligence
           </h2>
           <p className="text-body-large text-muted-foreground max-w-3xl mx-auto">
@@ -40,7 +40,7 @@ const ResearchShowcase = () => {
           {research.map((item, index) => (
             <div 
               key={item.title}
-              className="group bg-gradient-project rounded-2xl p-8 shadow-soft hover-lift"
+              className="group glass-card rounded-2xl p-8 shadow-elegant interactive-card stagger-animation ambient-glow gradient-border"
             >
               <div className="flex flex-col lg:flex-row lg:items-start gap-6">
                 <div className="flex-1">

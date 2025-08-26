@@ -34,10 +34,10 @@ const HarmoniaFramework = () => {
   ];
 
   return (
-    <section className="py-24 section-padding bg-gradient-subtle">
+    <section className="py-24 section-padding bg-gradient-subtle texture-overlay section-connector">
       <div className="container-wide">
         <div className="text-center mb-20">
-          <h2 className="text-display text-4xl lg:text-5xl mb-6 text-foreground">
+          <h2 className="text-display text-4xl lg:text-5xl mb-6 gradient-text">
             The Harmonia Framework
           </h2>
           <p className="text-body-large text-muted-foreground max-w-3xl mx-auto mb-8">
@@ -48,12 +48,12 @@ const HarmoniaFramework = () => {
           <div className="w-24 h-px bg-gradient-to-r from-transparent via-primary to-transparent mx-auto"></div>
         </div>
         
-        {/* Core Principles */}
+        {/* Enhanced Core Principles */}
         <div className="grid lg:grid-cols-2 gap-8 mb-20">
           {principles.map((principle, index) => (
             <div 
               key={principle.title}
-              className="p-8 bg-card rounded-2xl shadow-soft hover-lift border border-border"
+              className="p-8 glass-card rounded-2xl shadow-elegant interactive-card border border-border/20 stagger-animation ambient-glow"
             >
               <div className="flex items-start gap-4">
                 <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-primary-foreground font-semibold text-sm flex-shrink-0 mt-1">
