@@ -1,13 +1,18 @@
+
 import heroImage from "@/assets/hero-abstract.jpg";
+import ImageGenerator from "./ImageGenerator";
 
 const Hero = () => {
   return (
     <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-hero">
+      {/* Image Generator Component */}
+      <ImageGenerator />
+      
       {/* Background Image with Overlay */}
       <div className="absolute inset-0">
         <img 
           src={heroImage} 
-          alt="Abstract geometric composition" 
+          alt="Abstract geometric and organic composition representing human-system intersection" 
           className="w-full h-full object-cover opacity-30"
         />
         <div className="absolute inset-0 bg-gradient-hero opacity-80"></div>
