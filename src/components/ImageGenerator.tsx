@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { toast } from "sonner";
 
@@ -131,8 +130,8 @@ class RunwareService {
         taskType: "imageInference",
         taskUUID,
         model: params.model || "runware:100@1",
-        width: 1920,
-        height: 1080,
+        width: 1024,
+        height: 768,
         numberResults: params.numberResults || 1,
         outputFormat: params.outputFormat || "WEBP",
         steps: 4,
