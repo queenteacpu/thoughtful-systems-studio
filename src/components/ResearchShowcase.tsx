@@ -6,6 +6,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import { handleScrollToSection } from "@/utils/scrollUtils";
 
 const ResearchShowcase = () => {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
@@ -134,7 +135,10 @@ const ResearchShowcase = () => {
           <p className="text-body text-muted-foreground mb-6">
             Interested in collaborating on research or discussing these topics?
           </p>
-          <button className="border border-primary text-primary px-8 py-4 rounded-full text-body font-medium hover-lift bg-white/50 backdrop-blur-sm">
+          <button 
+            onClick={handleScrollToSection('contact')}
+            className="border border-primary text-primary px-8 py-4 rounded-full text-body font-medium hover-lift bg-white/50 backdrop-blur-sm hover:bg-white/70 transition-smooth cursor-pointer"
+          >
             Start a Conversation
           </button>
         </div>

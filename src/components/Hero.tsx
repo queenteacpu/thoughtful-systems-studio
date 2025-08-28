@@ -1,5 +1,6 @@
 
 import heroImage from "@/assets/hero-abstract.jpg";
+import { handleScrollToSection } from "@/utils/scrollUtils";
 
 const Hero = () => {
   return (
@@ -28,10 +29,16 @@ const Hero = () => {
         </p>
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <button className="bg-primary text-primary-foreground px-8 py-4 rounded-full text-body font-medium btn-glow shadow-soft">
+          <button 
+            onClick={handleScrollToSection('featured-projects')}
+            className="bg-primary text-primary-foreground px-8 py-4 rounded-full text-body font-medium btn-glow shadow-soft hover:bg-primary/90 transition-smooth cursor-pointer"
+          >
             Explore My Work
           </button>
-          <button className="border border-primary text-primary px-8 py-4 rounded-full text-body font-medium hover-lift bg-white/50 backdrop-blur-sm subtle-border">
+          <button 
+            onClick={handleScrollToSection('contact')}
+            className="border border-primary text-primary px-8 py-4 rounded-full text-body font-medium hover-lift bg-white/50 backdrop-blur-sm subtle-border hover:bg-white/70 transition-smooth cursor-pointer"
+          >
             Connect With Me
           </button>
         </div>

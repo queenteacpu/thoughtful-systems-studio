@@ -9,10 +9,18 @@ const Index = () => {
   return (
     <div className="min-h-screen">
       <Hero />
-      <FeaturedProjects />
-      <HarmoniaFramework />
-      <ResearchShowcase />
-      <Contact />
+      <div id="featured-projects">
+        <FeaturedProjects />
+      </div>
+      <div id="harmonia-framework">
+        <HarmoniaFramework />
+      </div>
+      <div id="research">
+        <ResearchShowcase />
+      </div>
+      <div id="contact">
+        <Contact />
+      </div>
       <Footer />
     </div>
   );

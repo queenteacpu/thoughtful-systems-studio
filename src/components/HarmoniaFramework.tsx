@@ -1,3 +1,5 @@
+import { handleScrollToSection } from "@/utils/scrollUtils";
+
 const HarmoniaFramework = () => {
   const principles = [
     {
@@ -114,7 +116,10 @@ const HarmoniaFramework = () => {
         </div>
         
         <div className="text-center">
-          <button className="bg-primary text-primary-foreground px-8 py-4 rounded-full text-body font-medium hover-lift shadow-soft transition-smooth">
+          <button 
+            onClick={handleScrollToSection('featured-projects')}
+            className="bg-primary text-primary-foreground px-8 py-4 rounded-full text-body font-medium hover-lift shadow-soft hover:bg-primary/90 transition-smooth cursor-pointer"
+          >
             Explore Framework Applications
           </button>
         </div>
