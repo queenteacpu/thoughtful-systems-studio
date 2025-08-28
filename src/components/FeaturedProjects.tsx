@@ -7,7 +7,7 @@ const projects = [
     highlights: ["Conceptual design system", "User journey mapping", "Emotional design framework", "Interactive prototype"],
     technologies: ["Figma", "Design Systems", "UX Research", "Prototyping"],
     status: "Prototype",
-    demoUrl: "#",
+    demoUrl: "https://cashmere-vibe-guide-queenteanasima.replit.app/",
     deckUrl: "#",
     useDesignSystem: true
   },
@@ -19,7 +19,7 @@ const projects = [
     highlights: ["Spotify API integration", "Mood detection research", "Playlist curation algorithm", "Interactive prototype"],
     technologies: ["Spotify API", "Machine Learning", "Audio Processing", "React"],
     status: "Prototype",
-    demoUrl: "#",
+    demoUrl: "https://vibe-resonance-mapper-queenteanasima.replit.app/",
     deckUrl: "#",
     useDesignSystem: true
   },
@@ -31,7 +31,7 @@ const projects = [
     highlights: ["£583M potential NHS savings", "40% admin reduction research", "GDPR compliance framework", "Stakeholder engagement"],
     technologies: ["AI/ML Research", "NHS Systems", "Compliance Design", "Service Design"],
     status: "Business Case",
-    demoUrl: "#",
+    demoUrl: "https://hrmnydemo003.lovable.app/",
     deckUrl: "#",
     useDesignSystem: true
   }
@@ -120,9 +120,14 @@ const FeaturedProjects = () => {
                   
                   {/* Buttons */}
                   <div className="space-y-3">
-                    <button className="w-full px-4 py-3 text-sm font-medium bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 btn-glow">
-                      {project.status === 'Business Case' ? 'View Business Case' : 'View Prototype'}
-                    </button>
+                    <a 
+                      href={project.demoUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full px-4 py-3 text-sm font-medium bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 btn-glow inline-block text-center"
+                    >
+                      Launch Live Demo
+                    </a>
                     <button className="w-full px-4 py-2 text-sm font-medium text-muted-foreground border border-border rounded-lg hover:bg-muted subtle-border transition-smooth">
                       {project.status === 'Business Case' ? 'View Prototype' : 'View Design Process'}
                     </button>

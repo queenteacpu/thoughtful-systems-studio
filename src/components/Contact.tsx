@@ -15,14 +15,14 @@ const Contact = () => {
         
         <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
           <a 
-            href="mailto:hello@example.com"
+            href="mailto:quintymichael@gmail.com"
             className="bg-primary text-primary-foreground px-8 py-4 rounded-full text-body font-medium hover-lift shadow-soft inline-block"
           >
             Send me an email
           </a>
           
           <a 
-            href="https://linkedin.com"
+            href="https://www.linkedin.com/in/quinn-michaels-9886a5276"
             target="_blank"
             rel="noopener noreferrer"
             className="border border-primary text-primary px-8 py-4 rounded-full text-body font-medium hover-lift bg-white/50 backdrop-blur-sm inline-block"
