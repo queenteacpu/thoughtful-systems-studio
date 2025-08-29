@@ -9,28 +9,34 @@ import {
 import { handleScrollToSection } from "@/utils/scrollUtils";
 
 const ResearchShowcase = () => {
-  const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [selectedArticle, setSelectedArticle] = useState<number | null>(null);
   const research = [
     {
       title: "Emotional Intelligence in System Design",
       type: "Research Paper",
       description: "Exploring how emotional intelligence principles can be integrated into technical system architecture to create more intuitive and responsive user experiences.",
       year: "2024",
-      status: "Published"
+      status: "Published",
+      pdfUrl: "https://drive.google.com/file/d/1YHOXyGXVoW_PVgXU1v_s-CSTLG3vOnCe/preview",
+      downloadUrl: "https://drive.google.com/uc?export=download&id=1YHOXyGXVoW_PVgXU1v_s-CSTLG3vOnCe"
     },
     {
       title: "The Psychology of Digital Workflows",
       type: "Case Study",
       description: "A deep dive into how cognitive load and decision fatigue affect user productivity in enterprise software environments.",
       year: "2023",
-      status: "Featured"
+      status: "Featured",
+      pdfUrl: "https://drive.google.com/file/d/11oyytS2CG6sSSIkijuc1XsG31n1UAAGL/preview",
+      downloadUrl: "https://drive.google.com/uc?export=download&id=11oyytS2CG6sSSIkijuc1XsG31n1UAAGL"
     },
     {
       title: "Adaptive Systems Theory",
       type: "Conceptual Framework",
       description: "A novel approach to building systems that learn and evolve based on user behavior patterns and organizational changes.",
       year: "2024",
-      status: "In Progress"
+      status: "In Progress",
+      pdfUrl: "https://drive.google.com/file/d/1DZcN09-S5rnYV_tL8zJnJB4C7EOSyeJD/preview",
+      downloadUrl: "https://drive.google.com/uc?export=download&id=1DZcN09-S5rnYV_tL8zJnJB4C7EOSyeJD"
     }
   ];
 
@@ -65,11 +71,9 @@ const ResearchShowcase = () => {
                     <span className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium">
                       {item.status}
                     </span>
-                    {index === 0 && (
-                      <span className="px-3 py-1 bg-primary/20 text-primary rounded-full text-sm font-medium flex items-center gap-1">
-                        📄 Full Article
-                      </span>
-                    )}
+                    <span className="px-3 py-1 bg-primary/20 text-primary rounded-full text-sm font-medium flex items-center gap-1">
+                      📄 PDF Available
+                    </span>
                   </div>
                   
                   <h3 className="text-heading text-2xl mb-4 text-foreground">
@@ -82,49 +86,40 @@ const ResearchShowcase = () => {
                 </div>
                 
                 <div className="lg:w-32 flex lg:flex-col gap-3">
-                  {index === 0 ? (
-                    <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
-                      <DialogTrigger asChild>
-                        <button className="flex-1 lg:flex-none text-primary font-medium hover:text-primary/80 transition-gentle text-sm">
-                          Read More →
-                        </button>
-                      </DialogTrigger>
-                      <DialogContent className="max-w-5xl w-[95vw] max-h-[90vh] overflow-y-auto">
-                        <DialogHeader>
-                          <DialogTitle className="text-2xl font-semibold mb-4">
-                            {item.title}
-                          </DialogTitle>
-                        </DialogHeader>
-                        <div className="space-y-4">
-                          <div className="relative w-full" style={{ paddingTop: "141.42%", boxShadow: "0 2px 8px rgba(63,69,81,0.16)", borderRadius: "8px", overflow: "hidden" }}>
-                            <iframe 
-                              loading="lazy" 
-                              style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", border: "none" }}
-                              src="https://www.canva.com/design/DAGxK7xh828/5KXX7crbMku0c8CLxyJdnA/view?embed" 
-                              allowFullScreen
-                            />
-                          </div>
-                          <p className="text-center text-sm text-muted-foreground">
-                            <a 
-                              href="https://www.canva.com/design/DAGxK7xh828/5KXX7crbMku0c8CLxyJdnA/view" 
-                              target="_blank" 
-                              rel="noopener"
-                              className="text-primary hover:text-primary/80 transition-gentle"
-                            >
-                              View full article on Canva
-                            </a>
-                          </p>
+                  <Dialog open={selectedArticle === index} onOpenChange={(open) => setSelectedArticle(open ? index : null)}>
+                    <DialogTrigger asChild>
+                      <button className="flex-1 lg:flex-none text-primary font-medium hover:text-primary/80 transition-gentle text-sm">
+                        View Research →
+                      </button>
+                    </DialogTrigger>
+                    <DialogContent className="max-w-5xl w-[95vw] max-h-[90vh] overflow-y-auto">
+                      <DialogHeader>
+                        <DialogTitle className="text-2xl font-semibold mb-4">
+                          {item.title}
+                        </DialogTitle>
+                      </DialogHeader>
+                      <div className="space-y-4">
+                        <div className="relative w-full" style={{ paddingTop: "75%", boxShadow: "0 2px 8px rgba(63,69,81,0.16)", borderRadius: "8px", overflow: "hidden" }}>
+                          <iframe 
+                            loading="lazy" 
+                            style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", border: "none" }}
+                            src={item.pdfUrl} 
+                            allowFullScreen
+                          />
                         </div>
-                      </DialogContent>
-                    </Dialog>
-                  ) : (
-                    <button className="flex-1 lg:flex-none text-primary font-medium hover:text-primary/80 transition-gentle text-sm">
-                      Read More →
-                    </button>
-                  )}
-                  <button className="flex-1 lg:flex-none text-muted-foreground hover:text-foreground transition-gentle text-sm">
-                    Download PDF
-                  </button>
+                        <div className="flex justify-center gap-4">
+                          <a 
+                            href={item.downloadUrl} 
+                            target="_blank" 
+                            rel="noopener"
+                            className="text-primary hover:text-primary/80 transition-gentle font-medium"
+                          >
+                            📄 Download PDF
+                          </a>
+                        </div>
+                      </div>
+                    </DialogContent>
+                  </Dialog>
                 </div>
               </div>
             </div>
