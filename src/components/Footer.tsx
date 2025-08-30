@@ -2,8 +2,8 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
   
   const navigation = [
-    { name: "Projects", href: "#projects" },
-    { name: "Framework", href: "#framework" },
+    { name: "Projects", href: "#featured-projects" },
+    { name: "Framework", href: "#harmonia-framework" },
     { name: "Research", href: "#research" },
     { name: "Contact", href: "#contact" }
   ];
