@@ -18,8 +18,8 @@ const projects = [
     status: "Prototype",
     demoUrl: "https://cashmere-vibe-guide-queenteanasima.replit.app/",
     deckUrl: "#",
-    processUrl: "https://drive.google.com/file/d/1fenkouE_Nr5UfFIzrruiDjZRpAuSSl88/view?usp=sharing",
-    previewUrl: "https://drive.google.com/file/d/1fenkouE_Nr5UfFIzrruiDjZRpAuSSl88/preview",
+    processUrl: "https://docs.google.com/document/d/1CFmYlOQyUw-Q5D0qRpTaUh6QiFIgyCDVRBtIrV3VnN0/edit?usp=sharing",
+    previewUrl: "https://docs.google.com/document/d/1CFmYlOQyUw-Q5D0qRpTaUh6QiFIgyCDVRBtIrV3VnN0/preview",
     useDesignSystem: true
   },
   {
@@ -32,6 +32,8 @@ const projects = [
     status: "Prototype",
     demoUrl: "https://vibe-resonance-mapper-queenteanasima.replit.app/",
     deckUrl: "#",
+    processUrl: "https://docs.google.com/document/d/1x4MrzN7IYfH7SeYzcbWr6nbSF59x0cmyv8yfT7BIm-w/edit?usp=sharing",
+    previewUrl: "https://docs.google.com/document/d/1x4MrzN7IYfH7SeYzcbWr6nbSF59x0cmyv8yfT7BIm-w/preview",
     useDesignSystem: true
   },
   {
@@ -145,15 +147,13 @@ const FeaturedProjects = () => {
                       <Dialog open={selectedProject === index} onOpenChange={(open) => setSelectedProject(open ? index : null)}>
                         <DialogTrigger asChild>
                           <button className="w-full px-4 py-2 text-sm font-medium text-muted-foreground border border-border rounded-lg hover:bg-muted subtle-border transition-smooth">
-                            {project.name === 'Karishma' ? 'View Strategy & Design Brief' : 
-                             project.status === 'Business Case' ? 'View Prototype' : 'View Design Process'}
+                            {project.status === 'Business Case' ? 'View Prototype' : 'View Design Process'}
                           </button>
                         </DialogTrigger>
                         <DialogContent className="max-w-5xl w-[95vw] max-h-[90vh] overflow-y-auto">
                           <DialogHeader>
                             <DialogTitle className="text-2xl font-semibold mb-4">
-                              {project.name === 'Karishma' ? 'Strategy & Design Brief' : 
-                               project.status === 'Business Case' ? 'Prototype Documentation' : 'Design Process'}
+                              {project.status === 'Business Case' ? 'Prototype Documentation' : 'Design Process'}
                             </DialogTitle>
                           </DialogHeader>
                           <div className="space-y-4">
