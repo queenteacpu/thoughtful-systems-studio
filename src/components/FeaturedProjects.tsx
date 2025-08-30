@@ -147,13 +147,13 @@ const FeaturedProjects = () => {
                       <Dialog open={selectedProject === index} onOpenChange={(open) => setSelectedProject(open ? index : null)}>
                         <DialogTrigger asChild>
                           <button className="w-full px-4 py-2 text-sm font-medium text-muted-foreground border border-border rounded-lg hover:bg-muted subtle-border transition-smooth">
-                            {project.status === 'Business Case' ? 'View Prototype' : 'View Design Process'}
+                            {project.status === 'Business Case' ? 'View Prototype' : 'View Strategy & Design Brief'}
                           </button>
                         </DialogTrigger>
                         <DialogContent className="max-w-5xl w-[95vw] max-h-[90vh] overflow-y-auto">
                           <DialogHeader>
                             <DialogTitle className="text-2xl font-semibold mb-4">
-                              {project.status === 'Business Case' ? 'Prototype Documentation' : 'Design Process'}
+                              {project.status === 'Business Case' ? 'Prototype Documentation' : 'Strategy & Design Brief'}
                             </DialogTitle>
                           </DialogHeader>
                           <div className="space-y-4">
@@ -180,7 +180,7 @@ const FeaturedProjects = () => {
                       </Dialog>
                     ) : (
                       <button className="w-full px-4 py-2 text-sm font-medium text-muted-foreground border border-border rounded-lg hover:bg-muted subtle-border transition-smooth opacity-60 cursor-not-allowed">
-                        {project.status === 'Business Case' ? 'View Prototype' : 'View Design Process'}
+                        {project.status === 'Business Case' ? 'View Prototype' : 'View Strategy & Design Brief'}
                       </button>
                     )}
                   </div>
