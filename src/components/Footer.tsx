@@ -11,7 +11,7 @@ const Footer = () => {
   const social = [
     { name: "LinkedIn", href: "https://linkedin.com" },
     { name: "GitHub", href: "https://github.com" },
-    { name: "Twitter", href: "https://twitter.com" },
+    { name: "Medium", href: "https://medium.com/@queenteanasima" },
     { name: "Email", href: "mailto:hello@example.com" }
   ];
 
