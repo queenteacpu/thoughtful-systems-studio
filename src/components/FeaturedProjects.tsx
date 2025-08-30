@@ -9,6 +9,7 @@ const projects = [
     status: "Prototype",
     demoUrl: "https://cashmere-vibe-guide-queenteanasima.replit.app/",
     deckUrl: "#",
+    processUrl: "https://drive.google.com/file/d/1fenkouE_Nr5UfFIzrruiDjZRpAuSSl88/view?usp=sharing",
     useDesignSystem: true
   },
   {
@@ -128,9 +129,21 @@ const FeaturedProjects = () => {
                     >
                       Launch Live Demo
                     </a>
-                    <button className="w-full px-4 py-2 text-sm font-medium text-muted-foreground border border-border rounded-lg hover:bg-muted subtle-border transition-smooth">
-                      {project.status === 'Business Case' ? 'View Prototype' : 'View Design Process'}
-                    </button>
+                    {project.processUrl ? (
+                      <a 
+                        href={project.processUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-full px-4 py-2 text-sm font-medium text-muted-foreground border border-border rounded-lg hover:bg-muted subtle-border transition-smooth inline-block text-center"
+                      >
+                        {project.name === 'Karishma' ? 'View Strategy & Design Brief' : 
+                         project.status === 'Business Case' ? 'View Prototype' : 'View Design Process'}
+                      </a>
+                    ) : (
+                      <button className="w-full px-4 py-2 text-sm font-medium text-muted-foreground border border-border rounded-lg hover:bg-muted subtle-border transition-smooth opacity-60 cursor-not-allowed">
+                        {project.status === 'Business Case' ? 'View Prototype' : 'View Design Process'}
+                      </button>
+                    )}
                   </div>
                 </div>
               </div>
