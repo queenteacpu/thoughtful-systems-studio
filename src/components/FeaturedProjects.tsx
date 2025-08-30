@@ -1,3 +1,12 @@
+import React, { useState } from "react";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+
 const projects = [
   {
     name: "Karishma",
@@ -10,6 +19,7 @@ const projects = [
     demoUrl: "https://cashmere-vibe-guide-queenteanasima.replit.app/",
     deckUrl: "#",
     processUrl: "https://drive.google.com/file/d/1fenkouE_Nr5UfFIzrruiDjZRpAuSSl88/view?usp=sharing",
+    previewUrl: "https://drive.google.com/file/d/1fenkouE_Nr5UfFIzrruiDjZRpAuSSl88/preview",
     useDesignSystem: true
   },
   {
@@ -39,6 +49,8 @@ const projects = [
 ];
 
 const FeaturedProjects = () => {
+  const [selectedProject, setSelectedProject] = useState<number | null>(null);
+  
   return (
     <section className="py-24 section-padding bg-gradient-subtle texture-overlay section-connector">
       <div className="container-wide">
@@ -130,15 +142,42 @@ const FeaturedProjects = () => {
                       Launch Live Demo
                     </a>
                     {project.processUrl ? (
-                      <a 
-                        href={project.processUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="w-full px-4 py-2 text-sm font-medium text-muted-foreground border border-border rounded-lg hover:bg-muted subtle-border transition-smooth inline-block text-center"
-                      >
-                        {project.name === 'Karishma' ? 'View Strategy & Design Brief' : 
-                         project.status === 'Business Case' ? 'View Prototype' : 'View Design Process'}
-                      </a>
+                      <Dialog open={selectedProject === index} onOpenChange={(open) => setSelectedProject(open ? index : null)}>
+                        <DialogTrigger asChild>
+                          <button className="w-full px-4 py-2 text-sm font-medium text-muted-foreground border border-border rounded-lg hover:bg-muted subtle-border transition-smooth">
+                            {project.name === 'Karishma' ? 'View Strategy & Design Brief' : 
+                             project.status === 'Business Case' ? 'View Prototype' : 'View Design Process'}
+                          </button>
+                        </DialogTrigger>
+                        <DialogContent className="max-w-5xl w-[95vw] max-h-[90vh] overflow-y-auto">
+                          <DialogHeader>
+                            <DialogTitle className="text-2xl font-semibold mb-4">
+                              {project.name === 'Karishma' ? 'Strategy & Design Brief' : 
+                               project.status === 'Business Case' ? 'Prototype Documentation' : 'Design Process'}
+                            </DialogTitle>
+                          </DialogHeader>
+                          <div className="space-y-4">
+                            <div className="relative w-full" style={{ paddingTop: "75%", boxShadow: "0 2px 8px rgba(63,69,81,0.16)", borderRadius: "8px", overflow: "hidden" }}>
+                              <iframe 
+                                loading="lazy" 
+                                style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", border: "none" }}
+                                src={project.previewUrl || project.processUrl.replace('/view', '/preview')} 
+                                allowFullScreen
+                              />
+                            </div>
+                            <div className="flex justify-center gap-4">
+                              <a 
+                                href={project.processUrl} 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                className="text-primary hover:text-primary/80 transition-gentle font-medium"
+                              >
+                                📄 Open in New Tab
+                              </a>
+                            </div>
+                          </div>
+                        </DialogContent>
+                      </Dialog>
                     ) : (
                       <button className="w-full px-4 py-2 text-sm font-medium text-muted-foreground border border-border rounded-lg hover:bg-muted subtle-border transition-smooth opacity-60 cursor-not-allowed">
                         {project.status === 'Business Case' ? 'View Prototype' : 'View Design Process'}
